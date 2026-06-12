@@ -1,0 +1,486 @@
+:root {
+    --marsala: #955251;
+    --borgonha: #800020;
+    --magenta: #8B008B;
+    --creme: #FDFBF7;
+    --texto: #333333;
+    --texto-claro: #666666;
+    --branco: #FFFFFF;
+    --transparente-marsala: rgba(149, 82, 81, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--creme);
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, .names {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.bg-alt {
+    background-color: var(--transparente-marsala);
+}
+
+.section-title {
+    font-size: 3rem;
+    color: var(--borgonha);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    width: 60%;
+    height: 1px;
+    background-color: var(--marsala);
+    position: absolute;
+    bottom: -10px;
+    left: 20%;
+}
+
+.section-subtitle {
+    margin-bottom: 40px;
+    color: var(--texto-claro);
+}
+
+/* Header & Nav */
+header {
+    background-color: var(--branco);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--borgonha);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--texto);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--marsala);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--branco);
+    text-align: center;
+    padding-top: 80px;
+}
+
+.names {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.date {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.time-block {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    padding: 15px 20px;
+    border-radius: 5px;
+    min-width: 100px;
+}
+
+.time-block span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.time-block label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+/* O Casal */
+.casal-flex {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    text-align: left;
+}
+
+.casal-text {
+    flex: 1;
+}
+
+.casal-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.casal-image {
+    flex: 1;
+}
+
+/* Event Cards */
+.event-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.event-card {
+    background-color: var(--branco);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    flex: 1;
+    max-width: 400px;
+}
+
+.event-card i {
+    font-size: 2.5rem;
+    color: var(--marsala);
+    margin-bottom: 20px;
+}
+
+.event-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--borgonha);
+}
+
+/* Lista de Presentes */
+.gifts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.gift-item {
+    background-color: var(--branco);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.gift-item:hover {
+    transform: translateY(-5px);
+}
+
+.gift-img-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-image: url('https://via.placeholder.com/300x200?text=Presente');
+    background-size: cover;
+}
+
+.gift-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.gift-item p {
+    color: var(--marsala);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.btn-presentear {
+    background-color: var(--marsala);
+    color: var(--branco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.btn-presentear:hover {
+    background-color: var(--borgonha);
+}
+
+/* RSVP */
+.rsvp-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.btn-main {
+    display: inline-block;
+    background-color: var(--borgonha);
+    color: var(--branco);
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin: 20px 0;
+    transition: background 0.3s;
+}
+
+.btn-main:hover {
+    background-color: var(--magenta);
+}
+
+/* Footer */
+footer {
+    background-color: var(--borgonha);
+    color: var(--branco);
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: var(--branco);
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#giftForm input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .names { font-size: 3rem; }
+    .casal-flex { flex-direction: column; }
+    .event-grid { flex-direction: column; align-items: center; }
+    nav ul { display: none; }
+    .section-title { font-size: 2.2rem; }
+}
+
+.barra {
+    background: #eee;
+    height: 8px;
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progresso {
+    background: var(--marsala);
+    height: 100%;
+    border-radius: 10px;
+}
+
+.gift-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .gifts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gift-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .gift-item img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .btn-presentear,
+    .btn-main {
+        width: 100%;
+        padding: 16px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    #giftForm input {
+        font-size: 16px;
+        padding: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        padding: 120px 20px 60px;
+    }
+
+    .names {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .date {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .countdown {
+        gap: 10px;
+    }
+
+    .time-block {
+        min-width: 70px;
+        padding: 10px;
+    }
+
+    .time-block span {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .event-card {
+        width: 100%;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        width: 100%;
+        background: white;
+        border-top: 1px solid #eee;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .gift-item img {
+        height: 180px;
+        object-fit: cover;
+    }
+}
+
