@@ -3,19 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❤️ 20/11/2026 ❤️</title>
+    <meta name="description" content="Casamento de Amanda & Vinicius — 20 de Novembro de 2026, Curitiba/PR">
+    <title>❤️ Amanda & Vinicius — 20/11/2026</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <!-- =========================================================
+         HEADER / NAVEGAÇÃO
+         ========================================================= -->
     <header id="header">
         <nav>
             <div class="logo">A & V</div>
-            <ul>
+
+            <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#casal">O Casal</a></li>
                 <li><a href="#evento">O Evento</a></li>
@@ -25,6 +37,9 @@
         </nav>
     </header>
 
+    <!-- =========================================================
+         HERO — CONTAGEM REGRESSIVA
+         ========================================================= -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1 class="names">Amanda & Vinicius</h1>
@@ -38,6 +53,9 @@
         </div>
     </section>
 
+    <!-- =========================================================
+         O CASAL
+         ========================================================= -->
     <section id="casal" class="section container">
         <h2 class="section-title">O Casal</h2>
         <div class="casal-flex">
@@ -46,91 +64,162 @@
                 <p>Estamos muito felizes em celebrar esse amor com as pessoas que mais amamos!</p>
             </div>
             <div class="casal-image">
-                <div class="image-placeholder" style="background-color: #f5f5f5; width: 100%; height: 400px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
-                    <span>Sua Foto Aqui</span>
-                </div>
+                <!-- Substitua pelo caminho da sua foto: <img src="images/casal.jpg" alt="Amanda e Vinicius"> -->
+                <div class="casal-image-placeholder">Sua Foto Aqui</div>
             </div>
         </div>
     </section>
 
+    <!-- =========================================================
+         O EVENTO
+         ========================================================= -->
     <section id="evento" class="section container bg-alt">
         <h2 class="section-title">O Evento</h2>
         <div class="event-grid">
             <div class="event-card">
                 <i class="fas fa-church"></i>
                 <h3>Cerimônia</h3>
-                <p>20 de Novembro de 2026 às 17:30</p>
-                <p>Local: Paróquia São José</p>
-                <p>Rua Raul de Oliveira, 185 - Cajuru, Curitiba - PR, 82590-300</p>
+                <p>20 de Novembro de 2026 às 17:00</p>
+                <p>Paróquia São José</p>
+                <p>Rua Raul de Oliveira, 185<br>Cajuru, Curitiba – PR</p>
             </div>
             <div class="event-card">
                 <i class="fas fa-glass-cheers"></i>
                 <h3>Recepção</h3>
-                <p>Após a cerimônia, os convidados serão recebidos no seguinte endereço:</p>
+                <p>Após a cerimônia</p>
                 <p>Salão Borck</p>
-                <p>Rua Pandiá Calógeras, 192 - Cajuru, Curitiba - PR, 82900-000</p>
+                <p>Rua Pandiá Calógeras, 192<br>Cajuru, Curitiba – PR</p>
             </div>
         </div>
     </section>
 
+    <!-- =========================================================
+         LISTA DE PRESENTES
+         ========================================================= -->
     <section id="presentes" class="section container">
         <h2 class="section-title">Lista de Presentes</h2>
-        
-        <p class="section-subtitle">
-            Sua presença é o nosso maior presente, mas se desejar nos presentear, aqui estão algumas sugestões:
-        </p>
 
         <p class="section-subtitle">
-            Para presentes, estamos adotando o sistema de cotas, que funciona da seguinte forma: <br>
-            O valor que está descrito no item é o valor da cota. <br>
-            A quantidade disponível é a quantidade de cotas que podem ser compradas para aquele item.
+            Sua presença é o nosso maior presente! Mas se desejar nos presentear, aqui estão algumas sugestões:
         </p>
-
+        <p class="section-subtitle">
+            Trabalhamos com o sistema de <strong>cotas</strong>: o valor exibido é o valor da cota, e a quantidade disponível indica quantas cotas ainda podem ser escolhidas para aquele item.
+        </p>
 
         <div id="listaPresentes" class="gifts-grid"></div>
     </section>
 
-    <!-- Modal para Presentear -->
-    <!-- <div id="giftModal" class="modal">
+    <!-- Modal de Presente (conteúdo preenchido pelo JavaScript) -->
+    <div id="giftModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalGiftName">
         <div class="modal-content">
-            <span class="close" onclick="closeGiftModal()">&times;</span>
+            <span class="close" onclick="closeGiftModal()" aria-label="Fechar">&times;</span>
             <h3>Presentear: <span id="modalGiftName"></span></h3>
-            <p>Para confirmar este presente, preencha conforme solicitado:</p>
-            <form id="giftForm">
-                <input type="text" placeholder="Seu Nome" required>
-                <input type="email" placeholder="Seu E-mail" required>
-                <button type="submit" class="btn-main">Confirmar Presente</button>
-            </form>
-        </div>
-    </div> -->
-
-    <div id="giftModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeGiftModal()">&times;</span>
-            <h3>Presentear: <span id="modalGiftName"></span></h3>
-            <p>Para confirmar este presente, preencha conforme solicitado:</p>
-
+            <p>Preencha os dados e gere o código Pix para realizar o pagamento:</p>
             <form id="giftForm"></form>
         </div>
     </div>
-        
+
+    <!-- =========================================================
+         RSVP — CONFIRMAÇÃO DE PRESENÇA
+         ========================================================= -->
     <section id="rsvp" class="section container bg-alt">
         <h2 class="section-title">Confirme sua Presença</h2>
-        <p class="section-subtitle">Por favor, confirme sua presença até o dia 20/10/2026.</p>
-        <p class="section-subtitle">Lembrando que a recepção acontecerá na Churrascaria Marumbbi (Rua São Bartolomeu, 191 - Cajuru, Curitiba - PR, 82900-330).<br>O valor, por pessoa, será de R$59,90.</p>
+        <p class="section-subtitle">Por favor, confirme sua presença até o dia <strong>20/10/2026</strong>.</p>
+        <p class="section-subtitle">
+            A recepção acontecerá no <strong>Salão Borck</strong><br>
+            (Rua Pandiá Calógeras, 192 – Cajuru, Curitiba – PR).<br>
+            Por estarmos iniciando a nossa vida a dois, pedimos uma pequena contribuição.<br>
+            Valor por <strong>adulto: R$ 50,00</strong>. Crianças até 15 anos: <strong>gratuito</strong>.
+        </p>
 
         <div class="rsvp-container">
-            <!-- Link para o Google Forms do usuário -->
-            <div class="form-wrapper">
-                <p class="section-subtitle">Para confirmar sua presença, utilize o formulário oficial abaixo:</p>
-                <!-- <a href="#" class="btn-main" target="_blank">Abrir Formulário de Confirmação</a> -->
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSebgCkkgI6lpl2w_G1iRk921OPPwVfqUGZtTtY67WydqrppCQ/viewform?embedded=true" style="width: 100%; max-width: 100%;" width="640" height="893" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+
+            <!-- Formulário -->
+            <div id="rsvpFormWrapper" class="rsvp-form-card">
+                <form id="rsvpForm" novalidate>
+
+                    <!-- Nome do responsável -->
+                    <div class="form-group">
+                        <label for="rsvpNome">Seu nome completo *</label>
+                        <input type="text" id="rsvpNome" placeholder="Como você quer ser chamado(a)"
+                               required autocomplete="name">
+                    </div>
+
+                    <!-- Opção de presença -->
+                    <div class="form-group">
+                        <label>Confirmação de presença *</label>
+                        <div class="radio-group" id="presencaGroup">
+
+                            <label class="radio-option">
+                                <input type="radio" name="presenca" value="cerimonia">
+                                <span>Irei comparecer somente na cerimônia</span>
+                            </label>
+
+                            <label class="radio-option">
+                                <input type="radio" name="presenca" value="recepcao">
+                                <span>Irei comparecer somente na recepção</span>
+                            </label>
+
+                            <label class="radio-option">
+                                <input type="radio" name="presenca" value="ambos">
+                                <span>Irei comparecer na cerimônia e na recepção</span>
+                            </label>
+
+                            <label class="radio-option radio-nao">
+                                <input type="radio" name="presenca" value="nao">
+                                <span>Infelizmente não poderei comparecer</span>
+                            </label>
+
+                        </div>
+                    </div>
+
+                    <!-- Detalhes da recepção (aparece ao selecionar opções com recepção) -->
+                    <div id="recepcaoDetails" class="recepcao-details">
+
+                        <p class="recepcao-info">
+                            Valor por adulto: <strong>R$ 50,00</strong> &nbsp;·&nbsp;
+                            Crianças até 15 anos: <strong>gratuito</strong>
+                        </p>
+
+                        <div class="qtd-row">
+                            <div class="form-group">
+                                <label for="qtdAdultos">Adultos</label>
+                                <input type="number" id="qtdAdultos" min="1" max="20" value="1">
+                            </div>
+                            <div class="form-group">
+                                <label for="qtdCriancas">Crianças (até 15 anos)</label>
+                                <input type="number" id="qtdCriancas" min="0" max="20" value="0">
+                            </div>
+                        </div>
+
+                        <!-- Campos de nome gerados dinamicamente pelo JavaScript -->
+                        <div id="nomesConvidados" class="nomes-convidados"></div>
+
+                        <div class="total-recepcao">
+                            Total da recepção:
+                            <strong id="totalRecepcaoValor">R$ 50,00</strong>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn-main" id="rsvpSubmitBtn">
+                        Confirmar Presença
+                    </button>
+
+                </form>
             </div>
+
+            <!-- Tela de resultado (exibida após envio) -->
+            <div id="rsvpResultado" class="rsvp-resultado hidden"></div>
+
         </div>
     </section>
 
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
     <footer>
-        <p>&copy; 2026 Amanda & Vinicius. Feito com amor.</p>
+        <p>&copy; 2026 Amanda &amp; Vinicius &mdash; Feito com amor ❤️</p>
     </footer>
 
     <script src="script.js"></script>
