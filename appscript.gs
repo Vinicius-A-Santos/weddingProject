@@ -112,7 +112,7 @@ function registrarCompra(dados) {
 // ============================================================
 function confirmarPresenca(dados) {
   const ss                  = SpreadsheetApp.getActiveSpreadsheet();
-  const confirmacaoSheet    = ss.getSheetByName("Confirmação");
+  const confirmacaoSheet    = ss.getSheetByName("Confirmacao");
 
   // Cria o cabeçalho automaticamente se a aba estiver vazia
   if (confirmacaoSheet.getLastRow() === 0) {
