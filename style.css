@@ -867,6 +867,18 @@ footer {
     background: var(--branco);
 }
 
+.form-group input.input-erro {
+    border-color: #c0392b;
+    background: #fff5f5;
+    animation: shake 0.35s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25%       { transform: translateX(-6px); }
+    75%       { transform: translateX(6px); }
+}
+
 /* Opções de rádio estilizadas como cards */
 .radio-group {
     display: flex;

@@ -315,24 +315,25 @@ function onPresencaChange() {
 }
 
 function atualizarNomesConvidados() {
-    const adultos  = Math.max(1, parseInt(document.getElementById("qtdAdultos").value) || 1);
-    const criancas = Math.max(0, parseInt(document.getElementById("qtdCriancas").value) || 0);
+    const adultos  = parseInt(document.getElementById("qtdAdultos").value)  || 0;
+    const criancas = parseInt(document.getElementById("qtdCriancas").value) || 0;
 
-    document.getElementById("qtdAdultos").value  = adultos;
-    document.getElementById("qtdCriancas").value = criancas;
-
+    // Atualiza o total sem forçar o valor no campo (permite apagar livremente no mobile)
     const total = adultos * VALOR_ADULTO;
     document.getElementById("totalRecepcaoValor").textContent =
         "R$ " + total.toFixed(2).replace('.', ',');
+
+    // Só regenera os campos de nome quando os valores são válidos
+    if (adultos < 0 || criancas < 0 || adultos + criancas > 40) return;
 
     const container = document.getElementById("nomesConvidados");
     const nomeResponsavel = document.getElementById("rsvpNome")?.value.trim() || "";
     container.innerHTML = '';
 
     for (let i = 0; i < adultos + criancas; i++) {
-        const isAdulto   = i < adultos;
-        const idx        = isAdulto ? i + 1 : i + 1 - adultos;
-        const label      = isAdulto ? `Adulto ${idx}` : `Criança ${idx} (até 15 anos)`;
+        const isAdulto    = i < adultos;
+        const idx         = isAdulto ? i + 1 : i + 1 - adultos;
+        const label       = isAdulto ? `Adulto ${idx}` : `Criança ${idx} (até 15 anos)`;
         const placeholder = isAdulto ? `Nome do adulto ${idx}` : `Nome da criança ${idx}`;
         const val         = (i === 0 && nomeResponsavel) ? nomeResponsavel : '';
 
@@ -369,8 +370,19 @@ async function submitRsvp(e) {
     let adultos = 0, criancas = 0, convidadosNomes = [], valorTotal = 0;
 
     if (comRecepcao) {
-        adultos  = parseInt(document.getElementById("qtdAdultos").value)  || 1;
+        adultos  = parseInt(document.getElementById("qtdAdultos").value)  || 0;
         criancas = parseInt(document.getElementById("qtdCriancas").value) || 0;
+
+        if (adultos < 1) {
+            showToast("Informe pelo menos 1 adulto para a recepção.");
+            const campoAdultos = document.getElementById("qtdAdultos");
+            campoAdultos.focus();
+            campoAdultos.classList.add("input-erro");
+            setTimeout(() => campoAdultos.classList.remove("input-erro"), 2500);
+            btn.disabled    = false;
+            btn.textContent = "Confirmar Presença";
+            return;
+        }
         valorTotal = adultos * VALOR_ADULTO;
         document.querySelectorAll(".nome-convidado").forEach(inp => {
             convidadosNomes.push(inp.value.trim() || "(não informado)");
