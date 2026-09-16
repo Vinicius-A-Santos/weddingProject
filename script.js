@@ -3,12 +3,12 @@
 // ============================================================
 
 // Pix para Lista de Presentes
-const PIX_KEY  = process.env.PIX_KEY;
+const PIX_KEY  = "c226bc78-6091-45e4-a9e5-64b3727ac98e";
 const PIX_NAME = "Vinicius e Amanda";
 const PIX_CITY = "Curitiba";
 
 // Pix separado para pagamento da Recepção (pode ser a mesma chave acima)
-const PIX_KEY_RECEPCAO  = process.env.PIX_KEY_RECEPCAO;
+const PIX_KEY_RECEPCAO  = "78bd26c2-be7f-4c5e-9b64-2beba4b819b9";
 const PIX_NAME_RECEPCAO = "Amanda e Vinicius";
 const PIX_CITY_RECEPCAO = "Curitiba";
 
@@ -19,7 +19,7 @@ const VALOR_ADULTO = 50.00;
 // Para o RSVP funcionar, adicione em sua GAS:
 //   if (body.action === "confirmarPresenca") → gravar numa aba "RSVP" com as colunas:
 //   ID | Nome | Presença | Adultos | Crianças | Convidados | ValorTotal | Timestamp
-const API_URL = process.env.API_URL;
+const API_URL = "https://script.google.com/macros/s/AKfycbyh_Q-ptbOLWL_1vPd3lKurGv0ayw3Ei445UYkhYKU2uGd5s3s59rz85WXGZXpMDZbOpg/exec";
 
 
 // ============================================================
